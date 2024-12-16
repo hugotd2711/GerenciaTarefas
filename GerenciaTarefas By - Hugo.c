@@ -17,7 +17,7 @@ void adicionarTarefa(const char* descricao) {
     if (contadorDeTarefas < MAX_TAREFAS) {
         listaDeTarefas[contadorDeTarefas].id = contadorDeTarefas + 1;
         strncpy(listaDeTarefas[contadorDeTarefas].descricao, descricao, MAX_DESCRICAO - 1);
-        listaDeTarefas[contadorDeTarefas].descricao[MAX_DESCRICAO - 1] = '\0';  // Garantir terminação nula
+        listaDeTarefas[contadorDeTarefas].descricao[MAX_DESCRICAO - 1] = '\0';  
         contadorDeTarefas++;
         printf("Tarefa adicionada com sucesso!\n");
     } else {
@@ -67,13 +67,12 @@ int main() {
     while (1) {
         menu();
         scanf("%d", &opcao);
-        getchar();  // Limpar o caractere de nova linha do buffer
-
+        getchar(); 
         switch (opcao) {
             case 1:
                 printf("Digite a descrição da tarefa: ");
                 fgets(descricao, MAX_DESCRICAO, stdin);
-                descricao[strcspn(descricao, "\n")] = 0;  // Remover nova linha
+                descricao[strcspn(descricao, "\n")] = 0; 
                 adicionarTarefa(descricao);
                 break;
             case 2:
